@@ -9,34 +9,37 @@
 <body>
     <div class="bible-quiz">
         <div class="quiz-app">
-        <div class="start-screen" id="start" style="display: block;">
-        <img src="assets/images/bible-quiz.png" height="120px" width="120px" class="bq"/>
-        </div>
-        <div class="quiz" id="quiz-screen" style="display: none;">
-            <div class="time" id="time-left"></div>
-        </div>
-        </div>
-        <div class="num-of-que">
-            <h3 class="que-text">Questions <span id="current-que">1</span> / <span id="total-num-of-que">15</span></h3>
-            <h3 class="dots">...................</h3>
-        </div>
-        <div class="ques">
-            <h1 id="question">What is the first book in the bible</h1>
-        </div>
-        <div class="options">
-            <button class="btn" id="opt1">Matthew</button>
-            <button class="btn" id="opt2">Genesis</button>
-            <button class="btn" id="opt3">Exodus</button>
-            <button class="btn" id="opt4">Psalm</button>
-        </div>
-        <div class="next-btn">
-            <button id="next-que">Next</button>
-        </div>
-        <div class="result" id="result-screen" style="display: none;">
-            <h1 class="user-score">Score</h1>
+            <div class="start-screen" id="start" style="display: block;">
+                <img src="assets/images/bible-quiz.png" height="120px" width="120px" class="bq">
+                <h1 class="app">Bible Quiz</h1>
+            </div>
+            <div class="quiz" id="quiz-screen" style="display: block;">
+                <div class="time-bar">
+                    <div class="time" id="time-left">
+
+                    </div>
+                </div>
+                <div class="num-of-question">
+                    <h3 class="que-text">Questions <span id="current-question"> 1</span> / <span id="total-num-of-question"> 15</span></h3>
+                    <h3 class="dots">.........</h3>
+                </div>
+                <div class="question">
+                    <h1 id="question">What is the first book in the bible</h1>
+                </div>
+
+                <div class="options">
+                    <button class="btn" id="opt1"></button>
+                    <button class="btn" id="opt2"></button>
+                    <button class="btn" id="opt3"></button>
+                    <button class="btn" id="opt4"></button>
+                </div>
+                <div class="next-btn">
+                    <button id="next-que">Next</button>
+                </div>
+            </div>
+            <div class="result" id="result-screen" style="display: none;"
         </div>
     </div>
-    
     <script src="assets/js/script.js"></script>
 </body>
 </html>

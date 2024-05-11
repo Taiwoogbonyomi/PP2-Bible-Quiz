@@ -1,1 +1,41 @@
+/*Google Fonts Import*/
+@import url('https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sedan' sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(255,255,255,1), rgba(0,0,0,5));
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.bible-quiz {
+    margin: 8px auto;
+    height: 560px;
+    width: 500px;
+    background-color: azure;
+    border-radius: 30px;
+    border-width: 18px;
+    border-style: solid;
+    border-color: darkgray;
+}
+
+.bq {
+    
+}
+
+
+
+
+.time-bar {
+    margin: 30px auto;
+
+}
