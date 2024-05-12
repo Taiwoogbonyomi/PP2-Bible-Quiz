@@ -20,7 +20,7 @@ body {
 
 .bible-quiz {
     margin: 8px auto;
-    height: 560px;
+    height: 600px;
     width: 500px;
     background-color: azure;
     border-radius: 30px;
@@ -85,3 +85,21 @@ body {
     border-radius: 20px;
     background: transparent;
 }
+
+.btn:hover {
+    background: lightcyan;
+}
+
+#next-que {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 10px 25px 10px 25px;
+    color: #000000;
+    border-radius: 30px;
+    border-style: solid;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+}
+
