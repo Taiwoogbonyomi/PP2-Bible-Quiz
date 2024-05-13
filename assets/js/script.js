@@ -1,90 +1,75 @@
+// Define questions in JSON format
+const questions = [
+    {
+        question: "What is the first book in the Bible?",
+        options: ["Exodus", "Genesis", "Matthew", "Psalm"],
+        answer: "Genesis"
+    },
+    {
+        question: "Who built the ark?",
+        options: ["Noah", "Abraham", "Moses", "David"],
+        answer: "Noah"
+    },
+    {
+        question: "Who was sold into slavery by his brothers?",
+        options: ["Joseph", "Jacob", "Isaac", "Daniel"],
+        answer: "Joseph"
+    },
+    // Add more questions here...
+];
+
 // Get DOM elements
-const startScreen = document.getElementById("start-screen");
+const startScreen = document.getElementById("start");
 const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
-const startButton = document.getElementById("start-btn");
-const nextButton = document.getElementById("next-que");
-const restartButton = document.getElementById("restart-btn");
 const questionElement = document.getElementById("question");
-const option1 = document.getElementById("opt1");
-const option2 = document.getElementById("opt2");
-const option3 = document.getElementById("opt3");
-const option4 = document.getElementById("opt4");
-const currentQuestionNum = document.getElementById("current-question");
-const totalQuestionsNum = document.getElementById("total-num-of-question");
-const timerElement = document.getElementById("timer");
-const scoreElement = document.getElementById("score");
+const optionsButtons = document.querySelectorAll(".btn");
+const nextButton = document.getElementById("next-que");
+const currentQuestionElement = document.getElementById("current-question");
+const totalQuestionsElement = document.getElementById("total-num-of-question");
+const userScoreElement = document.querySelector(".user-score");
+const restartButton = document.getElementById("restart-btn");
+const timerElement = document.querySelector(".time-left");
 
-// Global Variables
-let questions = []; // Array to store questions
-let score = 0; // Variable to store score
-let currentQuestionIndex = 0; // Variable to store current question index
-let timerInterval; // Variable to store timer interval
+let currentQuestionIndex = 0;
+let score = 0;
+let timeLeft = 60; // Initial time in seconds
+let timer; // Timer variable
 
-// Function to restart the quiz
-function restartQuiz() {
-    score = 0; // Reset score to 0
-    currentQuestionIndex = 0; // Reset current question index
-    clearInterval(timerInterval); // Clear timer interval
-    initializeQuiz(); // Reinitialize the quiz
+// Function to start the quiz
+function startQuiz() {
+    startScreen.style.display = "none";
+    quizScreen.style.display = "block";
+    showQuestion();
+    startTimer();
 }
 
-// Function to start the timer
-function startTimer(timeLimit) {
-    let timeLeft = timeLimit;
-
-    // Update timer every second
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        timerElement.textContent = `${timeLeft} seconds left`;
-
-        // End quiz if time runs out
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            endQuiz();
-        }
-    }, 1000);
-}
-
-// Fetch questions from JSON file
-try {
-  console.log("Fetching questions...");
-  const response = await fetch("questions.json");
-  if (!response.ok) {
-      throw new Error("Failed to fetch questions");
-  }
-  const data = await response.json();
-  console.log("Questions fetched:", data);
-  return data;
-} catch (error) {
-  console.error("Error fetching questions:", error.message);
-}
-
-
-// Display question and options
-function displayQuestion(questionIndex) {
-    const currentQuestion = questions[questionIndex];
+// Function to show current question
+function showQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
 
-    const options = currentQuestion.options;
-    option1.textContent = options[0];
-    option2.textContent = options[1];
-    option3.textContent = options[2];
-    option4.textContent = options[3];
+    currentQuestion.options.forEach((option, index) => {
+        optionsButtons[index].textContent = option;
+    });
+
+    currentQuestionElement.textContent = currentQuestionIndex + 1;
+    totalQuestionsElement.textContent = questions.length;
 }
 
-// Check the selected answer
-function checkAnswer(selectedOptionIndex, questionIndex) {
-    const currentQuestion = questions[questionIndex];
-    const correctOptionIndex = currentQuestion.options.indexOf(currentQuestion.correct);
-
-    if (selectedOptionIndex === correctOptionIndex) {
+// Function to check answer
+function checkAnswer(selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (selectedOption === currentQuestion.answer) {
         score++;
     }
+}
 
-    if (questionIndex + 1 < questions.length) {
-        currentQuestionIndex++;
-        displayQuestion(currentQuestionIndex);
+// Function to handle next button click
+function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
     } else {
         endQuiz();
     }
@@ -92,26 +77,54 @@ function checkAnswer(selectedOptionIndex, questionIndex) {
 
 // Function to end the quiz
 function endQuiz() {
-  console.log("Quiz ended");
-  clearInterval(timerInterval);
-  quizScreen.style.display = "none";
-  resultScreen.style.display = "block";
-  scoreElement.textContent = score;
+    stopTimer();
+    quizScreen.style.display = "none";
+    resultScreen.style.display = "block";
+    userScoreElement.textContent = `Score: ${score} / ${questions.length}`;
 }
 
-// Initialize the quiz
-async function initializeQuiz() {
-  console.log("Initializing quiz...");
-  questions = await fetchQuestions();
-  console.log("Fetched questions:", questions);
-  if (questions.length > 0) {
-      displayQuestion(0); // Start with the first question
-      startTimer(15); // Start the timer with a time limit of 15 seconds
-  }
+// Function to start the timer
+function startTimer() {
+    timer = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = `Time-left: ${timeLeft}s`;
+
+        if (timeLeft === 0) {
+            endQuiz();
+        }
+    }, 1000); // Update timer every second
 }
 
-// Call initializeQuiz() to start the quiz
-initializeQuiz();
+// Function to stop the timer
+function stopTimer() {
+    clearInterval(timer);
+}
 
-// Event listener for the restart button
+// Function to restart the quiz
+function restartQuiz() {
+    stopTimer();
+    // Reset variables
+    currentQuestionIndex = 0;
+    score = 0;
+    timeLeft = 60; // Reset time
+
+    // Show the start screen and hide the result screen
+    startScreen.style.display = "block";
+    resultScreen.style.display = "none";
+
+    // Start the quiz again
+    startQuiz();
+}
+
+// Add event listeners
+optionsButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        checkAnswer(button.textContent);
+    });
+});
+
+nextButton.addEventListener("click", nextQuestion);
 restartButton.addEventListener("click", restartQuiz);
+
+// Start the quiz
+startQuiz();

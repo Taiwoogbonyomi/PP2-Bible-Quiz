@@ -7,7 +7,7 @@
         "Matthew",
         "Revelation"
     ],
-    "correct" : "Genesis"
+    "answer" : "Genesis"
 
 },
 {
@@ -20,7 +20,7 @@
         "Ten",
         "Six"
     ],
-    "correct" : "Six"
+    "answer" : "Six"
 },
 {
     
@@ -32,7 +32,7 @@
         "Heaven",
         "Babylon"
     ],
-    "correct" : "Garden of Eden"
+    "answer" : "Garden of Eden"
 },
 {
     
@@ -44,7 +44,7 @@
         "30 days",
         "10 days"
     ],
-    "correct" : "40 days"
+    "answer" : "40 days"
 },
 {
     
@@ -56,7 +56,7 @@
         "A coat of many colors",
         "An helmet"
     ],
-    "correct" : "A coat of many colors"
+    "answer" : "A coat of many colors"
 },
 {
     
@@ -68,7 +68,7 @@
         "A river",
         "A child"
     ],
-    "correct" : "A burning bush"
+    "answer" : "A burning bush"
 },
 {
     
@@ -80,7 +80,7 @@
         "Pray with the Israelites",
         "Kill the people"
     ],
-    "correct" : "Let my people go"
+    "answer" : "Let my people go"
 },
 {
     
@@ -92,7 +92,7 @@
         "Cannan",
         "Egypt"
     ],
-    "correct" : "Bethlehem"
+    "answer" : "Bethlehem"
 },
 {
     
@@ -104,7 +104,7 @@
         "Andrew",
         "John the Baptist"
     ],
-    "correct" : "John the Baptist"
+    "answer" : "John the Baptist"
 },
 {
     
@@ -116,7 +116,7 @@
         "Prayed for them",
         "Gist with them"
     ],
-    "correct" : "Washed their feet"
+    "answer" : "Washed their feet"
 },
 {
     
@@ -128,7 +128,7 @@
         "He ran away",
         "He decayed"
     ],
-    "correct" : "He rose again"
+    "answer" : "He rose again"
 },
 {
     
@@ -140,7 +140,7 @@
         "He disappeared",
         "He sailed"
     ],
-    "correct" : "He rose into the clouds"
+    "answer" : "He rose into the clouds"
 },
 {
     
@@ -152,7 +152,7 @@
         "Monday",
         "Sunday"
     ],
-    "correct" : "Sunday"
+    "answer" : "Sunday"
 },
 {
     
@@ -164,7 +164,7 @@
         "Yous shall have no other gods before me",
         "You shall not kill"
     ],
-    "correct" : "You shall have no other gods before me"
+    "answer" : "You shall have no other gods before me"
 },
 {
     
@@ -176,7 +176,7 @@
         "Malachi",
         "Matthew"
     ],
-    "correct" : "Revelation"
+    "answer" : "Revelation"
 },
 {
     
@@ -188,6 +188,6 @@
         "Killed him",
         "Left him in the wild"
     ],
-    "correct" : "Sold him to slave traders"
+    "answer" : "Sold him to slave traders"
 }
 ]
