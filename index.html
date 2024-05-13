@@ -12,13 +12,10 @@
         <div class="quiz-app">
             <div class="start-screen" id="start" style="display: none;">
                 <img src="assets/images/bible-quiz.png" class="bq">
-                
             </div>
             <div class="quiz" id="quiz-screen" style="display: block;">
                 <div class="time-bar">
-                    <div class="time" id="time-left">
-
-                    </div>
+                    <div class="time" id="time-left"> Time-left : <span class="time-left">15s</span></div>
                 </div>
                 <div class="num-of-question">
                     <h3 class="que-text">Questions <span id="current-question"> 1</span> / <span id="total-num-of-question"> 15</span></h3>
@@ -37,8 +34,11 @@
                     <button id="next-que">Next</button>
                 </div>
             </div>
-            <div class="result" id="result-screen" style="display: none;"
-            <h1 class="user-score">Score : <span id="score">6</span></h1>
+            <div class="result" id="result-screen" style="display: block;">
+                <div class="user-score">Score : </div>
+                <!-- Add restart button -->
+                <button id="restart-btn">Restart</button>
+            </div>
         </div>
     </div>
     <script src="assets/js/script.js"></script>
