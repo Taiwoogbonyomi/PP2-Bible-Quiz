@@ -98,8 +98,14 @@ body {
     color: #000000;
     border-radius: 30px;
     border-style: solid;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-right: 10px;
     float: right;
 }
+
+.dots {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
 
